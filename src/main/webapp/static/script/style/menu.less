@@ -1,0 +1,126 @@
+@import "theme.less";
+
+/* Menu items */
+
+.dropdowncontainer {
+  margin-top:50px;
+  background: @menu-bg-color;
+  border: @header-border-width solid @dark-trim;
+  border-bottom: none;
+  ul {
+    list-style: none;
+  }
+}
+
+ul.dropdown {
+  display: block;
+  background: @dark-trim;
+  position: relative;
+
+  li{
+     position: relative;
+
+    // Any hovered element displays its immediate submenu
+    &.hover, &:hover {
+      z-index: 599;
+      >ul {
+       display: block;
+      }
+    }
+  }
+
+  // the actual drop downs 
+  ul {
+    //display: block;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 598;
+    background: @menu-bg-color;
+
+    li {
+      vertical-align: middle;
+      zoom: 1;
+      width: @menu-element-width;
+      font-size:12px;
+      line-height: 30px;
+      border-bottom:0px solid #333;
+    }
+    ul {
+      left: @menu-element-width;
+      top: 0;
+      z-index: 600;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding: @menu-padding;
+    display: block;
+  }
+
+  
+
+
+  .submenu-arrow {
+    float: right;
+  }
+
+  div {
+    text-align:left;
+    width: @menu-element-width - 2 * @menu-padding;
+    padding: @menu-padding;
+    cursor: default;
+  }
+  
+  div.topLevelMenu, div.menuSelected {
+    font-size: @menu-toplevel-font-size;
+    line-height: @menu-toplevel-line-height;
+    width: @menu-element-width;
+    padding:0px;
+    margin-bottom:5px;
+    a {
+      display: block;
+      position:relative;
+    }
+  }
+  .topLevelMenu {
+    background: @menu-bg-color;
+  }
+  .menuSelected {
+    background: @menu-active-color;
+  }
+  .menuHovered {
+    background: #555;
+  }
+  .menuOdd {
+    background: @menu-odd-bg-color;
+  }
+
+  li:hover, 
+  div.topLevelMenu:hover,
+  div.menuSelected:hover {
+    background: @menu-active-color;
+    &>a {
+      color: @menu-hi-color;
+    }
+  }
+
+}
+
+
+// TODO: what is this?
+.nolink {
+  float: none;
+  width: 100%;
+  padding:10px;
+}
+
+
+
+
+
+
+

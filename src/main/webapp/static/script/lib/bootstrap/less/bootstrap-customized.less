@@ -1,0 +1,33 @@
+@font-size-base: 12px;
+
+//Panel css customised
+@panel-body-padding:          5px;
+
+@headings-font-family :Verdana, Helvetica, Arial, sans-serif;
+
+.panel-heading {
+  padding: 5px 10px;
+  border-bottom: 1px solid transparent;
+  .border-top-radius((@panel-border-radius - 1));
+
+  > .dropdown .dropdown-toggle {
+    color: #445372;;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  padding: 5px 10px;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+  .border-bottom-radius((@panel-border-radius - 1));
+}
+
+
+//Modal
+//** Padding applied to the modal body
+@modal-inner-padding:         10px;
+
+//** Padding applied to the modal title
+@modal-title-padding:         5px;
+//** Modal title line-height

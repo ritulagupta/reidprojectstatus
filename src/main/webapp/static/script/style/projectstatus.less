@@ -1,0 +1,332 @@
+@import "theme.less";
+@import "menu.less";
+
+// Enough space for the full header
+@full-width-breakpoint: 960px;
+// Need a separate line for the menu
+@smallest-width-breakpoint: 500px;
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+html, body {
+  height:100%;
+}
+
+body {
+  min-height:100%;
+  min-width: @smallest-width-breakpoint;
+  position:relative;
+  // apply theme
+  font-family: @base-font-stack;
+  font-size: @base-font-size;
+  line-height: @base-line-height;
+  color: @dark-text;
+  background: @light-bg;
+}
+
+
+h1, h2, h3, h4 {
+  color: @title-color;
+}
+
+.important-text {
+  color: @title-color + 50; 
+  font-size:1.1em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+a {
+  color: @link-color;
+  cursor: pointer;
+}
+
+a.simplewhite {
+  text-decoration: none;
+  color: white;
+}
+a.simpleblack {
+  text-decoration: none;
+  color: #333;
+}
+
+a.pointer {
+  cursor: default;
+}
+
+h6.title {
+  color:white;
+  font-size:1.1em
+}
+
+/* Base or theme styles for the TSConsole application */
+.ok, .running, .standby {
+  background-color: @success-color;
+}
+
+.standby, .paused {
+  background-color: @standby-color;
+}
+
+.attention {
+  background-color: @attention-color;
+}
+
+.failed {
+  background-color: @fail-color;
+}
+
+.offline {
+ background-color:@offline-color;
+}
+
+.errorMsg {
+  color:@fail-color;
+}
+
+.accessDeniedErrorMsg {
+  color:@fail-color;
+  font-weight: bold;
+}
+
+.pane {
+  position:absolute;
+  border:8px solid #555;
+  padding: 0 4px 4px 4px;
+  z-index:1;
+  background-color:#fff;
+}
+
+
+
+
+
+#errorbox {
+  display: block;
+  border-radius: 2px;
+  font-size: 120%;
+  color: @attention-color;
+  backgroun: white;
+  padding: 1em 1em;
+}
+
+
+.buttonish {
+  background-color: @dark-trim;
+  border:1px solid @highlight-trim;
+  color: @light-text;
+  cursor: pointer;
+  &:hover {
+    background-color: @clickme-bg;
+    color: @clickme-fg;
+  }
+}
+
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.add,
+.button {
+  .buttonish;
+  min-width:128px;
+  height:28px;
+  font-size:1.1em;
+  text-align:center;
+}
+
+button[type="submit"], button[type="reset"], button[type="button"] {
+  cursor:pointer;
+}
+
+// TODO: route out any remaining uses of this
+#flashMessage {
+  position:absolute;
+  top:0;
+  left:50%;
+  z-index:2;
+  display:none;
+  margin:0 auto;
+  padding:16px;
+  width:400px;
+  margin-left:-200px;
+}
+
+#flashMessage.error {
+  background-color:#ffebe8;
+  border:1px solid #dd3c10;
+}
+
+#flashMessage.success {
+  background-color:#ddee9e;
+  border:1px solid #87a812;
+}
+#flashMessage ul {
+  margin: 0 2em;
+}
+
+#flashModalMessage {
+  position:absolute;
+  top:0;
+  left:50%;
+  z-index:2;
+  display:none;
+  margin:0 auto;
+  padding:16px;
+  width:400px;
+  margin-left:-200px;
+}
+
+#flashModalMessage.error {
+  background-color:#ffebe8;
+  border:1px solid #dd3c10;
+}
+
+#flashModalMessage.success {
+  background-color:#ddee9e;
+  border:1px solid #87a812;
+}
+#flashModalMessage ul {
+  margin: 0 2em;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+
+ul, li {
+  margin:0;
+  padding:0;
+}
+
+lt-ie8 nav ul{
+  li {
+    display:inline;
+    zoom:1;
+  }
+  ul {
+    top:100%;
+  }
+}
+
+body > header {
+  position: relative;
+ 
+  color: @header-fg;
+  z-index:1;
+  height:90px;
+  border-bottom: @header-border-width solid @dark-trim;
+
+  @media (max-width: @full-width-breakpoint) {
+    background-position: 0 (@tall-menu-offset - @header-bg-image-height);
+  }
+
+  // clearfix
+  &:after {
+    content: ""; display: table; clear: both;
+  }
+
+  .logolinkcontainer {
+    display: block;
+    float: left;
+  }
+  
+  .logo {
+    background:url(images/Emirates_REIT-h80.png) no-repeat center center;
+    width: @logo-image-width;
+    height: @logo-image-height;
+    margin: @page-margin;
+  }
+  
+  .headertitle {
+    float: left;
+    font-size: @title-font-size;
+    line-height: @title-line-height;
+    margin-top: 5px; // This is trial-and-error to get on the baseline
+    margin-right: 0.5em;
+  }
+
+  .header-right { 
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  
+
+
+  .header-central {
+    .dropdowncontainer{
+
+
+      
+      @media (max-width: @full-width-breakpoint) {
+        margin-top: 0;
+        display: block;
+        float: left;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        border-right: none;
+        width: 100%;
+        .dropdown {
+          border-right: @header-border-width solid @dark-trim;
+        }
+      }
+    }
+  }
+}
+
+#content {
+  position: relative;
+  padding-bottom: 2.5em;
+  padding : 5px;
+}
+
+
+
+
+
+#main {
+  clear:both;
+  margin: 0 @page-margin;
+  padding-bottom:72px;
+}
+
+
+body > footer {
+  background: @menu-bg-color;
+  border-top: @header-border-width solid @dark-trim;
+  color: @header-fg;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  min-width: @smallest-width-breakpoint;
+  padding: @page-margin;
+
+  .copyright{
+    float: right;
+    a {
+      text-decoration:none;
+      padding-bottom:2px;
+      border-bottom:1px dotted;
+      color:#fff;
+    }
+  }
+}
+
+.heading {
+  font-size :24px;
+  font-weight : bold;
+}
+
+
+

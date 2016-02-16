@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+  <!-- spring magic -->
+  <mvc:resources mapping="/static/**" location="static/"/>
+ <!-- <mvc:view-controller path="/version" view-name="_version"/>
+  <context:annotation-config/>
+  <context:component-scan base-package="com.sandt.console"/>
+  <context:property-placeholder location="classpath:conf/global.properties,classpath:conf/application.properties,classpath:conf/environments/${SANDT_ENV}.properties" ignore-resource-not-found="true" ignore-unresolvable="true"/>
+
+  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:order="0" p:alwaysUseFullPath="true"/>
+  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+  <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller" p:autodetectAnnotations="true" />
+  <util:list id="defaultViews">
+    <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+    <bean class="org.springframework.web.servlet.view.xml.MarshallingView" p:marshaller-ref="marshaller"/>
+  </util:list>
+  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+    p:order="1"
+    p:ignoreAcceptHeader="false"
+    p:defaultViews-ref="defaultViews"/>
+
+  <bean id="props" class="org.springframework.beans.factory.config.PropertiesFactoryBean" p:location="classpath:conf/global.properties"/>
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    p:order="2"
+    p:viewClass="com.sandt.console.view.JstlView"
+    p:prefix="/WEB-INF/views/"
+    p:suffix=".jsp"
+    p:exposedContextBeanNames="props"/>
+
+  <import resource="persistence.xml"/>
+
+  <util:properties id="statusCodeMessages" location="classpath:/messages_en.properties"/>
+-->
+</beans>
